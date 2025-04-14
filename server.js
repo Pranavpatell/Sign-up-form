@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 });
 
 // 💾 MongoDB connection (Hardcoded URI, big brain)
-mongoose.connect('mongodb://mongo:YKdhFxNCBVpvWuotHDCKHvwAKdRjxOuT@trolley.proxy.rlwy.net:35483/', {
+mongoose.connect('https://mongodb-production-7890.up.railway.app/', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
