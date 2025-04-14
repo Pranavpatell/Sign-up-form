@@ -34,6 +34,6 @@ app.post('/submit', async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
+app.listen('mongodb://mongo:YKdhFxNCBVpvWuotHDCKHvwAKdRjxOuT@trolley.proxy.rlwy.net:35483/', () => {
   console.log('Server is running on http://localhost:3000');
 });
