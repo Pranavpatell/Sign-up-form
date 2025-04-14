@@ -15,14 +15,14 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index3.html');
 });
 
-// 💾 MongoDB connection (Hardcoded URI, big brain)
-mongoose.connect('https://mongodb-production-7890.up.railway.app/', {
+// 💾 MongoDB Connection (Correct URI)
+mongoose.connect('mongodb://mongo:YKdhFxNCBVpvWuotHDCKHvwAKdRjxOuT@trolley.proxy.rlwy.net:35483/', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
-  console.log("MongoDB Connected Successfully 🔗");
+  console.log("✅ MongoDB Connected Successfully");
 }).catch((err) => {
-  console.error("MongoDB Connection Failed:", err);
+  console.error("❌ MongoDB Connection Failed:", err);
 });
 
 // 🧠 Schema
@@ -39,15 +39,15 @@ app.post('/submit', async (req, res) => {
   try {
     const form = new Form(req.body);
     await form.save();
-    res.send('Form Submitted Successfully!');
+    res.send('✅ Form Submitted Successfully!');
   } catch (err) {
     console.error(err);
-    res.status(500).send('Failed to submit form');
+    res.status(500).send('❌ Failed to submit form');
   }
 });
 
-// 🚀 Dynamic port for Railway
-const PORT = process.env.PORT || 27017;
+// 🚀 Proper Port (Not Mongo’s port, you silly!)
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`🚀 Server is running on port ${PORT}`);
 });
