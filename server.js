@@ -47,7 +47,7 @@ app.post('/submit', async (req, res) => {
 });
 
 // 🚀 Dynamic port for Railway
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 27017;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
