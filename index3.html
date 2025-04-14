@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up Form</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #1e1e1e url('lop.jpg') no-repeat center center/cover;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .form-base {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .form {
+  display: flex;
+  background: rgba(255, 255, 255, 0.1); /* translucent background */
+  border-radius: 2rem;
+  box-shadow: 0 0 8rem rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  gap: 2rem;
+  width: 90%;
+  max-width: 1000px;
+  backdrop-filter: blur(20px); /* GLASS EFFECT 💎 */
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+    .form img {
+      height: 32rem;
+      object-fit: contain;
+    }
+    .input-area {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5rem;
+      width: 100%;
+      
+    }
+    .input-area input {
+      height: 3rem;
+      padding: 0 1rem;
+      border: none;
+      border-bottom: 3px solid white;
+      border-radius: 0.5rem;
+      background-color: transparent;
+      color: white;
+      font-size: 1.2rem;
+      background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .input-area input::placeholder {
+      color: #ccc;
+    }
+    button {
+      height: 3rem;
+      width: 8rem;
+      font-size: 1.2rem;
+      background-color: transparent;
+      border: 3px solid white;
+      color: white;
+      font-weight: bold;
+      border-radius: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background-color: white;
+      color: #1e1e1e;
+    }
+    c{
+        display: flex;
+        justify-content: center;
+        font-family: sans-serif;
+        height: 10rem;
+        text-align: center;
+        font-size: 6rem;
+        background: transparent;
+    }
+    img{
+        height: ;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-base">
+    <div class="form">
+      <!-- <c>El <br>Senor Enterprises -->
+    <img src="Let_s_grow_and_create_together__1_-removebg-preview (1).png" alt="" srcset="">
+
+      <!-- </c> -->
+      <form class="input-area" action="http://localhost:3000/submit" method="POST">
+
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="tel" name="number" placeholder="Number" required />
+        <input type="email" name="email" placeholder="E-mail" required />
+        <input type="date" name="birthdate" placeholder="Birthdate" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
