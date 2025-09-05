@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
 app.use(cors());
@@ -10,21 +11,24 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve HTML
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
-}).then(() => console.log("✅ MongoDB Connected Successfully"))
-  .catch(err => console.error("❌ MongoDB Connection Failed:", err));
+})
+.then(() => console.log("✅ MongoDB Connected Successfully"))
+.catch(err => console.error("❌ MongoDB Connection Failed:", err));
 
 // Schema
 const FormSchema = new mongoose.Schema({
   name: String,
+  number: String,
   email: String,
-  message: String
+  birthdate: String,
+  password: String
 });
 const Form = mongoose.model('Form', FormSchema);
 
@@ -43,4 +47,3 @@ app.post('/submit', async (req, res) => {
 // Listen
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
-
