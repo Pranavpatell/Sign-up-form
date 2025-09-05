@@ -133,7 +133,7 @@ form.addEventListener('submit', async (e) => {
   };
 
   try {
-    const res = await fetch('https://sign-up-form-vce8.onrender.com/submit', {
+    const res = await fetch('https://sign-up-form-vce8.onrender.com/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -148,5 +148,6 @@ form.addEventListener('submit', async (e) => {
   }
 });
 </script>
+
 
 
