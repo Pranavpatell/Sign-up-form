@@ -105,7 +105,7 @@
 
       <!-- </c> -->
 <!--       <form class="input-area" action="" method="POST"> -->
-<form class="input-area" action="https://mongodb-production-7890.up.railway.app/submit" method="POST">
+<form class="input-area">
 
 
         <input type="text" name="name" placeholder="Name" required />
@@ -119,3 +119,34 @@
   </div>
 </body>
 </html>
+<script>
+const form = document.querySelector('.input-area');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault(); // prevent default HTML submit
+
+  const data = {
+    name: form.name.value,
+    number: form.number.value,
+    email: form.email.value,
+    birthdate: form.birthdate.value,
+    password: form.password.value
+  };
+
+  try {
+    const res = await fetch('https://sign-up-form-vce8.onrender.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    const text = await res.text();
+    alert(text); // shows success/failure message
+    form.reset(); // clear form after submit
+  } catch (err) {
+    console.error(err);
+    alert('❌ Submission failed!');
+  }
+});
+</script>
+
+
