@@ -14,15 +14,17 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// MongoDB Connection
+// ✅ MongoDB Connection (use existing DB & avoid creating new DBs)
 mongoose.connect(process.env.MONGO_URI, {
+  dbName: 'ElSenorDB',          // force using your existing DB
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 30000
 })
 .then(() => console.log("✅ MongoDB Connected Successfully"))
 .catch(err => console.error("❌ MongoDB Connection Failed:", err));
 
-// Schema
+// Schema (all fields)
 const FormSchema = new mongoose.Schema({
   name: String,
   number: String,
@@ -30,7 +32,9 @@ const FormSchema = new mongoose.Schema({
   birthdate: String,
   password: String
 });
-const Form = mongoose.model('Form', FormSchema);
+
+// Use existing collection 'forms' explicitly
+const Form = mongoose.model('Form', FormSchema, 'forms');
 
 // POST route
 app.post('/submit', async (req, res) => {
@@ -44,6 +48,6 @@ app.post('/submit', async (req, res) => {
   }
 });
 
-// Listen
+// Listen on Render port
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
