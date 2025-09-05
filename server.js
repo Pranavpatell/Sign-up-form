@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve HTML
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index3.html');
+  res.sendFile(__dirname + '/index.html');
 });
 
 // MongoDB Connection
@@ -43,3 +43,4 @@ app.post('/submit', async (req, res) => {
 // Listen
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
